@@ -1,7 +1,7 @@
-#line 121 "main.nw"
+//#line 121 "main.nw"
 #include <time.h> // for clock_gettime
 #include <locale.h> // for setlocale()
-#include <stdio.h>
+//#include <stdio.h>
 #include <unistd.h> // for isatty()
 #include "lua_interpreter.h"
 #include "qtdynamic.h"
@@ -10,21 +10,21 @@
 #include "qtlua.h"
 #include <assert.h>
 #include <iostream>
-#include <stdexcept>
-#line 5 "main.nw"
+//#include <stdexcept>
+//#line 5 "main.nw"
 extern "C" {
 #include <lua5.2/lua.h>
-#include <lua5.2/lualib.h>
-#include <lua5.2/lauxlib.h>
+//#include <lua5.2/lualib.h>
+//#include <lua5.2/lauxlib.h>
 }
-#line 132 "main.nw"
+//#line 132 "main.nw"
 #include <QObject>
-#include <QTimer>
+//#include <QTimer>
 #include <QCoreApplication>
 #include <QStringList>
 
 namespace {
-#line 142 "main.nw"
+//#line 142 "main.nw"
 int app_quit(lua_State *L) {
   lua_getglobal(L, "interp");
   LuaInterpreter *li = *static_cast<LuaInterpreter**>(lua_touserdata(L, -1));
@@ -71,7 +71,7 @@ LuaInterpreter::LuaInterpreter(QObject *parent, const QStringList::iterator& arg
   luaL_requiref(lua_state, "os", &luaopen_os, 1);
   luaL_requiref(lua_state, "bit32", &luaopen_bit32, 1);
   luaL_requiref(lua_state, "qt", &luaopen_qt, 1);
-#line 192 "main.nw"
+//#line 192 "main.nw"
   // extend package.cpath
   lua_getglobal(lua_state, "package");
   assert(!lua_isnil(lua_state, -1));
